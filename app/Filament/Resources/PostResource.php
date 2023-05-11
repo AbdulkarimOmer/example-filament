@@ -35,13 +35,15 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('content'),
+                Tables\Columns\TextColumn::make('type'),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\ViewAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
@@ -58,7 +60,10 @@ class PostResource extends Resource
     public static function getPages(): array
     {
         return [
-            //
+            'index' => Pages\ListPosts::route('/'),
+            'view' => Pages\ViewPost::route('/{record}'),
+            'create' => Pages\CreatePost::route('/create'),
+            'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
 }
