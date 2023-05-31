@@ -15,9 +15,12 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
-    // protected static ?string $modelLabel = __('filament/ar/pages/dashboard.1');
-
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    public static function getPluralModelLabel(): string
+    {
+        return __('resources.posts');
+    }
 
     public static function form(Form $form): Form
     {
