@@ -27,7 +27,6 @@ class PostResource extends Resource
         return $form
             ->schema([
                 TextInput::make('content'),
-                TextInput::make('type'),
                 Toggle::make('status'),
             ]);
     }
@@ -37,7 +36,7 @@ class PostResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('content'),
-                Tables\Columns\TextColumn::make('type'),
+                Tables\Columns\CheckboxColumn::make('status'),
             ])
             ->filters([
                 //

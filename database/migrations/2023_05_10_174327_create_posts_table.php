@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
 
             $table->text('content')->nullable();
-            $table->string('type')->nullable();
 
             $table->boolean('status')->default(true);
 
